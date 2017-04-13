@@ -1544,11 +1544,11 @@ function render(display, tetrion) {
 		for (let canvas of data.elements) {
 			let draw = Draw(canvas)
 			if (!data.clearing)
-			 	draw = draw.rect('white')
+			 	draw = draw.rect.bind(null, 'white')
 			else
 				draw = draw.clear
 			let x = data.width * (animation.frame % (animation.duration / 2))
-			draw(x, 0, data.width, size)
+			draw(data.width, size)(x, 0)
 		}
 		animation.frame++
 		if (animation.frame >= animation.duration / 2) {
