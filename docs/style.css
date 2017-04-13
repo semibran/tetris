@@ -1,0 +1,138 @@
+* {
+	image-rendering: pixelated;
+}
+
+html {
+	display: flex;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	margin: auto;
+	background: #223;
+	width: 100vw;
+	height: calc(100vw * 15 / 16);
+	overflow: hidden;
+}
+
+main {
+	position: relative;
+	margin: auto;
+	transform: scale(calc(256px / 100vw));
+}
+
+main .foreground .view {
+	margin: 4px;
+}
+
+.foreground {
+	display: flex;
+	align-items: flex-start;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+	z-index: 1;
+}
+
+.background {
+	display: flex;
+	position: relative;
+}
+
+header {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 8px;
+	padding: 0 16px;
+	background: black;
+}
+
+.piece {
+	position: absolute;
+}
+
+.piece:not(.locked) {
+	transition: 0.1s linear;
+}
+
+.piece.falling {
+	transition: 0.25s cubic-bezier(.5, .1, .9, .5);
+}
+
+.box {
+	position: relative;
+}
+
+.box .foreground {
+	width: 32px;
+	height: 32px;
+}
+
+.box .foreground canvas {
+	position: absolute;
+}
+
+.wrap {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0;
+	padding: 2px;
+}
+
+.wrap > * {
+	margin: 2px;
+}
+
+.rotating {
+	animation: rotate 0.15s linear;
+}
+
+.enter {
+	animation: slide-in 0.5s linear forwards
+}
+
+.leave {
+	animation: slide-out 0.5s linear forwards
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(90deg);
+	}
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateY(-100%);
+	}
+	to {
+		transform: translateY(0%);
+	}
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateY(0%);
+	}
+	to {
+		transform: translateY(100%);
+	}
+}
+
+@media (min-aspect-ratio: 16 / 15) {
+	body {
+		width: calc(100vh * 16 / 15);
+		height: 100vh;
+	}
+}

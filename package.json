@@ -1,0 +1,29 @@
+{
+  "name": "tetris",
+  "version": "0.0.0",
+  "description": "Tetris clone",
+  "license": "MIT",
+  "author": "Brandon Semilla <semibran@gmail.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/semibran/tetris.git"
+  },
+  "scripts": {
+    "build": "browserify src/index.js -o docs/build.js"
+  },
+  "devDependencies": {
+    "browserify": "^14.3.0"
+  },
+  "dependencies": {
+    "bel": "^4.6.0",
+    "canvas": "github:semibran/canvas",
+    "canvas-draw": "github:semibran/canvas-draw",
+    "image-extract": "github:semibran/image-extract",
+    "image-load": "github:semibran/image-load",
+    "keys": "github:semibran/keys",
+    "pull-stream": "^3.5.0",
+    "random": "github:semibran/random",
+    "tetromino": "github:semibran/tetromino"
+  }
+}
